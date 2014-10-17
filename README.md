@@ -1,6 +1,10 @@
 Sherlock
 ========
 
+**WARNING**: This library is not supposed to be used in new projects. Go have a look at the official Client maintained by Zachary Tong!
+
+This version is maintained for the sole purpose of supporting a legacy application.
+
 _Sherlock_ is a PHP (>=5.3.9) client for [ElasticSearch](http://www.elasticsearch.org/).  _Sherlock_ can be used to search and manage ElasticSearch clusters.
 
 Features
