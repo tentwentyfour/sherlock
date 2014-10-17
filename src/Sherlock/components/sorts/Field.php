@@ -1,8 +1,5 @@
 <?php
 /**
- * User: Zachary Tong
- * Date: 3/7/13
- * Time: 8:12 PM
  * @package Sherlock\components\sorts
  */
 
@@ -25,6 +22,8 @@ class Field extends components\BaseComponent implements components\SortInterface
         $this->params['order']           = null;
         $this->params['missing']         = null;
         $this->params['ignore_unmapped'] = null;
+        $this->params['nested_path']     = null;
+        $this->params['nested_filter']   = null;
 
         parent::__construct($hashMap);
     }
@@ -32,6 +31,7 @@ class Field extends components\BaseComponent implements components\SortInterface
 
     public function toArray()
     {
+        $nf = ($this->params['nested_filter'] instanceof \Sherlock\components\FilterInterface) ? $this->params['nested_filter']->toArray() : null;
         $ret = array(
             $this->params['name'] =>
             array(
@@ -39,6 +39,8 @@ class Field extends components\BaseComponent implements components\SortInterface
                 'order'           => $this->params["order"],
                 'missing'         => $this->params["missing"],
                 'ignore_unmapped' => $this->params["ignore_unmapped"],
+                'nested_path'     => $this->params["nested_path"],
+                'nested_filter'   => $nf,
             ),
         );
 
